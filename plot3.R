@@ -12,6 +12,9 @@ plot3 <- function() {
   # Create date-time data in the first column
   ppdata[,1] <- paste(ppdata[,1], ppdata[,2], sep=" ")
   
+  #Create PNG
+  png("plot3.png")
+  
   # create (invisible) plots
   plot(strptime(ppdata[,1], "%Y-%m-%d %H:%M:%S"), ppdata$Sub_metering_1, type="n", ylim=c(0,40),
        xlab="", ylab="Energy Sub Metering (kilowatts)")
@@ -30,10 +33,9 @@ plot3 <- function() {
   
   # add legend
   legend('topright', c("Sub_metering_1","Sub_metering_2", "Sub_metering_3") , 
-           lty=1, col=c('black', 'red', 'blue'), bty='o')
+           lty=1, lwd=2, col=c('black', 'red', 'blue'), bty='o')
   
-  # create PNG
-  dev.copy(png, file = "plot3.png") 
+  # close device
   dev.off()
 }
 

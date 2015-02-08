@@ -8,8 +8,8 @@ plot1 <- function() {
   ppdata[,1] <- as.Date(as.character(ppdata[,1]), "%d/%m/%Y")
   ppdata <- subset(ppdata, ppdata[,1] >= as.Date("01-02-2007", "%d-%m-%Y") & ppdata[,1] <= as.Date("02-02-2007","%d-%m-%Y"))
   
+  png("plot1.png")
   hist(ppdata$Global_active_power,col=c("red"),  main="Global Active Power", xlab="Global Active power (kilowatts)")  
-  dev.copy(png, file = "plot1.png") 
   dev.off()
 }
 

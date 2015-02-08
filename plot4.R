@@ -12,7 +12,9 @@ plot4 <- function() {
   # Create date-time data in the first column
   ppdata[,1] <- paste(ppdata[,1], ppdata[,2], sep=" ")
   
+  # create pdg
   png("plot4.png")
+  
   par(mfrow = c(2, 2))
   # plot1 (= plot2)
   plot(strptime(ppdata[,1], "%Y-%m-%d %H:%M:%S"), ppdata$Global_active_power, type="l",
@@ -46,7 +48,7 @@ plot4 <- function() {
   plot(strptime(ppdata[,1], "%Y-%m-%d %H:%M:%S"), ppdata$Global_reactive_power, type="l",
        xlab="datetime", ylab="Global reactive power (kilowatts)") 
    
-  # create PNG
+  # close device
   dev.off()
 }
 
